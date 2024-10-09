@@ -166,7 +166,7 @@ class Node:
         i = 0
         for bit_state in block:
             bit_state.measure_basis = msg[i:i+1]
-            if bit_state.tx_basis is not None and bit_state.measure_basis != bit_state.tx_basis:
+            if bit_state.measure_basis != bit_state.tx_basis:
                 bit_state.base_mismatch = True
             i += 1
 
