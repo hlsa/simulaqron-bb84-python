@@ -163,7 +163,6 @@ class Node:
     def receive_measure_basis(self, block):
         msg = self.recv_msg("basis")
         self._rx_stats.basis_msg += 1
-        assert len(msg) == self._block_size, "Chosen basis message has wrong size"
         i = 0
         for bit_state in block:
             bit_state.measure_basis = msg[i:i+1]
