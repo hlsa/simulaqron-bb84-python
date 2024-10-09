@@ -91,12 +91,6 @@ class Node:
         return window
 
     def receive_and_measure_qubits_window(self, measure_percentage):
-
-        # TODO: The following is a terrible hack to avoid BrokenPipe errors in Simulaqron
-        # when a node sends two messages in succession. Remove this once issue #246 is fixed.
-        global NEED_SLEEP_BEFORE_SEND
-        NEED_SLEEP_BEFORE_SEND = False
-
         window = []
         for _ in range(self._window_size):
             qubit = self._cqc_connection.recvQubit()
